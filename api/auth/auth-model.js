@@ -43,7 +43,7 @@ function get(id) {
   
   function generateToken(user) {
       const payload = {
-        subject: user.user_id,
+        subject: user.id,
         username: user.username,
       };
     
@@ -51,11 +51,11 @@ function get(id) {
         expiresIn: '1d',
       };
     
-      return jwt.sign(payload, JWT_SECRET, options);
+      return jwt.sign(payload, "secret_key", options);
     }
   
     function validateToken(token){
-      return jwt.verify(token, JWT_SECRET);
+      return jwt.verify(token, 'shh');
     }
 
 module.exports = {
