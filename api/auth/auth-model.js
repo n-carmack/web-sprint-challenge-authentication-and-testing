@@ -43,7 +43,7 @@ function get(id) {
   
   function generateToken(user) {
       const payload = {
-        subject: user.id,
+        subject: user.user_id,
         username: user.username,
       };
     

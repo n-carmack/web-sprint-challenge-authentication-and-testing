@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
         return res.status(400).json({ message: "token required"}); 
       }
   
-      jwt.verify(token, JWT_SECRET, (err, user) => {
+      jwt.verify(token, 'secret_key', (err, user) => {
 
           if (err) {
             return res.status(403).json("token invalid")
@@ -29,5 +29,4 @@ module.exports = (req, res, next) => {
           req.user = user;
           next();
       })
-
 };
